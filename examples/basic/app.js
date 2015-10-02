@@ -1,9 +1,10 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 var Modal = require('../../lib/index');
 
 var appElement = document.getElementById('example');
 
-Modal.setAppElement('#example');
+Modal.setAppElement(appElement);
 
 var App = React.createClass({
 
@@ -36,7 +37,8 @@ var App = React.createClass({
         <Modal
           closeTimeoutMS={150}
           isOpen={this.state.modalIsOpen}
-          onRequestClose={this.handleModalCloseRequest}>
+          onRequestClose={this.handleModalCloseRequest}
+        >
           <h1>Hello</h1>
           <button onClick={this.closeModal}>close</button>
           <div>I am a modal</div>
@@ -58,4 +60,4 @@ var App = React.createClass({
   }
 });
 
-React.render(<App/>, appElement);
+ReactDOM.render(<App/>, appElement);
